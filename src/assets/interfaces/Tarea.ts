@@ -1,5 +1,3 @@
-import { UUID } from "crypto"
-
 export default interface Tarea{
     id: string
     name: string,

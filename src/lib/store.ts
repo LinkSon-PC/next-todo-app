@@ -2,13 +2,15 @@ import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './features/counter/counterSlice'
 import proyectoReducer from './features/proyectos/proyectosSlice'
 import tareaReducer from './features/tareas/tareasSlice'
+import usuarioReducer from './features/usuarios/usuariosSlice'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
           counter: counterReducer,
-          proyecto: proyectoReducer,
-          tarea: tareaReducer
+          user: usuarioReducer,
+          //proyecto: proyectoReducer,
+          //tarea: tareaReducer,
         },
   })
 }

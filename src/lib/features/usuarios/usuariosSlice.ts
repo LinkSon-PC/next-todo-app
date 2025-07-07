@@ -6,7 +6,7 @@ import type { RootState } from '../../store'
 interface UserState {
     name: string,
     rol: string,
-    value: number
+    value?: number
 }
 
 // Define the initial state using that type
@@ -25,7 +25,8 @@ export const userSlice = createSlice({
         state = initialState
     },
     initializeUser: (state, action: PayloadAction<UserState>) => {
-        state = action.payload;
+        state.name = action.payload.name;
+        state.rol = action.payload.rol;
     },
     updateUser: (state, action: PayloadAction<string>) => {
         state.name = action.payload;
@@ -39,6 +40,6 @@ export const userSlice = createSlice({
 export const { initializeUser, resetUser, updateUser, updateRol } = userSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.counter.value
+export const selectUser = (state: RootState) => state.user.name
 
 export default userSlice.reducer
